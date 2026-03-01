@@ -15,7 +15,7 @@ export default [
       react,
       'react-hooks': hooks,
       'jsx-a11y': jsxA11y,
-      import: importPlugin   // ← ВОТ ЭТО ГЛАВНОЕ
+      import: importPlugin, // ← ВОТ ЭТО ГЛАВНОЕ
     },
     rules: {
       'react/react-in-jsx-scope': 'off',
@@ -28,23 +28,16 @@ export default [
       'import/order': [
         'error',
         {
-          groups: [
-            'builtin',
-            'external',
-            'internal',
-            'parent',
-            'sibling',
-            'index'
-          ],
-          'newlines-between': 'always'
-        }
-      ]
+          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+          'newlines-between': 'always',
+        },
+      ],
     },
     settings: {
       react: {
-        version: 'detect'
-      }
-    }
+        version: 'detect',
+      },
+    },
   },
-  prettier
+  prettier,
 ]

@@ -40,18 +40,18 @@ paths:
                 components:
                   schemas: VehicleList
               example:
-                timestamp: "2023-10-27T10:30:00Z"
+                timestamp: '2023-10-27T10:30:00Z'
                 vehicles:
-                  - id: "s_01"
-                    type: "SCOOTER"
+                  - id: 's_01'
+                    type: 'SCOOTER'
                     lat: 55.7523
                     lon: 48.7445
                     battery_level: 88
-                  - id: "c_05"
-                    type: "CARPOOL_DRIVER"
+                  - id: 'c_05'
+                    type: 'CARPOOL_DRIVER'
                     lat: 55.7550
                     lon: 48.7500
-                    status: "MOVING"
+                    status: 'MOVING'
 
   /api/v1/route/calculate:
     post:
@@ -100,7 +100,7 @@ paths:
           content:
             application/json:
               example:
-                message: "Scenario changed to RAINY_WEATHER. Scooter speeds reduced to 10km/h."
+                message: 'Scenario changed to RAINY_WEATHER. Scooter speeds reduced to 10km/h.'
 
 components:
   schemas:
@@ -162,7 +162,7 @@ components:
           maximum: 100
         status:
           type: string
-          example: "AVAILABLE"
+          example: 'AVAILABLE'
       required:
         - id
         - type
@@ -254,7 +254,7 @@ components:
           type: number
         instruction:
           type: string
-          example: "Walk to Technopark Station"
+          example: 'Walk to Technopark Station'
         geometry:
           type: array
           description: List of [lat, lon] points for drawing the line on the map.
@@ -278,4 +278,3 @@ components:
           type: array
           items:
             $$ref: '#/components/schemas/RouteSegment'
-
