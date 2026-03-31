@@ -18,7 +18,10 @@ export function RoutePolylineLayer() {
   return (
     <>
       {routeResult.segments.map((segment, idx) => {
-        const positions: [number, number][] = segment.geometry.map(([lat, lon]) => [lat, lon])
+        const positions: [number, number][] = segment.geometry.map(([lat, lon]) => [
+          lat,
+          lon,
+        ])
         const color = MODE_COLORS[segment.mode]
         const dashArray = MODE_DASH[segment.mode]
 

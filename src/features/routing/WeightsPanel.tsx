@@ -14,7 +14,11 @@ const WEIGHT_CONFIG: { key: WeightKey; label: string; icon: string }[] = [
  * Normalizes weights so they sum to 1.0.
  * When one slider changes, the others are scaled proportionally.
  */
-function normalizeWeights(weights: UserWeights, changedKey: WeightKey, newValue: number): UserWeights {
+function normalizeWeights(
+  weights: UserWeights,
+  changedKey: WeightKey,
+  newValue: number,
+): UserWeights {
   const updated = { ...weights, [changedKey]: newValue }
   const total = Object.values(updated).reduce((a, b) => a + b, 0)
   if (total === 0) {

@@ -38,11 +38,15 @@ export function ScenarioPanel() {
         <div className="scenario-physics">
           <div className="physics-row">
             <span>Speed</span>
-            <span className="physics-val">×{scenarioPhysics.speed_multiplier.toFixed(2)}</span>
+            <span className="physics-val">
+              ×{scenarioPhysics.speed_multiplier.toFixed(2)}
+            </span>
           </div>
           <div className="physics-row">
             <span>Demand</span>
-            <span className="physics-val">×{scenarioPhysics.demand_multiplier.toFixed(2)}</span>
+            <span className="physics-val">
+              ×{scenarioPhysics.demand_multiplier.toFixed(2)}
+            </span>
           </div>
           <div className="physics-row">
             <span>Emissions</span>

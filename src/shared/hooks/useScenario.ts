@@ -5,8 +5,12 @@ import { useAppStore } from '@/shared/store/appStore'
 import type { ScenarioType } from '@/shared/types/domain'
 
 export function useScenario() {
-  const { setScenario: storeSetScenario, setScenarioPhysics, setScenarioLoading, setError } =
-    useAppStore()
+  const {
+    setScenario: storeSetScenario,
+    setScenarioPhysics,
+    setScenarioLoading,
+    setError,
+  } = useAppStore()
 
   const applyScenario = useCallback(
     async (scenario: ScenarioType) => {

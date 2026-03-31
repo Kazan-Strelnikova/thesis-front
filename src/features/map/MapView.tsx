@@ -2,11 +2,11 @@ import 'leaflet/dist/leaflet.css'
 
 import { MapContainer, TileLayer } from 'react-leaflet'
 
-import { INNOPOLIS_CENTER } from '@/shared/types/domain'
-
 import { ClickToSetPoints } from './ClickToSetPoints'
 import { RoutePolylineLayer } from './RoutePolylineLayer'
 import { VehicleMarkersLayer } from './VehicleMarkersLayer'
+
+import { INNOPOLIS_CENTER } from '@/shared/types/domain'
 
 export function MapView() {
   return (

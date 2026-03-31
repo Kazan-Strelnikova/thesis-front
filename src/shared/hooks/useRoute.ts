@@ -1,5 +1,4 @@
 import { useCallback } from 'react'
-
 import axios from 'axios'
 
 import { calculateRoute } from '@/shared/api/routing'
@@ -24,7 +23,9 @@ export function useRoute() {
     } catch (err) {
       if (axios.isAxiosError(err)) {
         if (err.response?.status === 404) {
-          setError('No feasible route found. Try relaxing constraints or changing the scenario.')
+          setError(
+            'No feasible route found. Try relaxing constraints or changing the scenario.',
+          )
         } else if (err.response?.status === 422) {
           setError('Invalid request. Check that weights are valid.')
         } else {

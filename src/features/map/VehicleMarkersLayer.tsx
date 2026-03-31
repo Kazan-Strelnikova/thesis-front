@@ -14,7 +14,7 @@ function makeIcon(emoji: string) {
 }
 
 const scooterIcon = makeIcon('🛴')
-const carpoolIcon = makeIcon('🚗')
+// const carpoolIcon = makeIcon('🚗')
 
 export function VehicleMarkersLayer() {
   const { vehicles } = useSupply()
