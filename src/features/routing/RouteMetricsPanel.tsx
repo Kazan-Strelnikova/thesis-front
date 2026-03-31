@@ -12,8 +12,8 @@ export function RouteMetricsPanel() {
       <section className="panel panel--warning">
         <h3 className="panel-title">⚠️ No Feasible Route</h3>
         <p className="panel-hint">
-          No route satisfies the current constraints. Try changing the scenario or relaxing
-          weights.
+          No route satisfies the current constraints. Try changing the scenario or
+          relaxing weights.
         </p>
       </section>
     )
