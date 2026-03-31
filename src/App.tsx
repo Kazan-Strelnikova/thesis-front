@@ -1,31 +1,72 @@
-import { useState } from 'react'
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+import { CalculateRouteButton } from '@/features/routing/CalculateRouteButton'
+import { RouteMetricsPanel } from '@/features/routing/RouteMetricsPanel'
+import { RouteSegmentsList } from '@/features/routing/RouteSegmentsList'
+import { WeightsPanel } from '@/features/routing/WeightsPanel'
+import { ScenarioPanel } from '@/features/simulation/ScenarioPanel'
+import { MapView } from '@/features/map/MapView'
+import { useAppStore } from '@/shared/store/appStore'
 
+function ErrorToast() {
+  const { error, clearError } = useAppStore()
+  if (!error) return null
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    <div className="error-toast" role="alert">
+      <span>{error}</span>
+      <button className="error-toast__close" onClick={clearError} aria-label="Dismiss">
+        ✕
+      </button>
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div className="app-layout">
+      {/* ── Sidebar ── */}
+      <aside className="sidebar">
+        <header className="sidebar-header">
+          <h1 className="sidebar-title">🚌 Innopolis Transit</h1>
+          <p className="sidebar-subtitle">Multimodal Route Optimizer</p>
+        </header>
+
+        <div className="sidebar-body">
+          <ScenarioPanel />
+          <WeightsPanel />
+          <CalculateRouteButton />
+          <RouteMetricsPanel />
+          <RouteSegmentsList />
+        </div>
+
+        <footer className="sidebar-footer">
+          <p>Thesis · Innopolis University · 2025</p>
+        </footer>
+      </aside>
+
+      {/* ── Map ── */}
+      <main className="map-area">
+        <MapView />
+        <div className="map-legend">
+          <span className="legend-item">
+            <span className="legend-dot" style={{ background: '#9ca3af' }} />
+            Walk
+          </span>
+          <span className="legend-item">
+            <span className="legend-dot" style={{ background: '#22c55e' }} />
+            Scooter
+          </span>
+          <span className="legend-item">
+            <span className="legend-dot" style={{ background: '#3b82f6' }} />
+            Carpool
+          </span>
+          <span className="legend-item">🛴 Scooter</span>
+          <span className="legend-item">🔵 Driver</span>
+        </div>
+      </main>
+
+      <ErrorToast />
+    </div>
   )
 }
 
